@@ -1,11 +1,11 @@
-package com.javarush.task.pro.task14.task1403;
+package com.javarush.task.pro.task14.task1404;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 /* 
-Помощник преподавателя-2
+Помощник преподавателя-3
 */
 
 public class Solution {
@@ -32,21 +32,18 @@ public class Solution {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.print(PROMPT_STRING);
-            String input = scanner.nextLine();
-            if (input.toLowerCase().equals(EXIT)) {
-                break;
-            }
-
-
             try {
-                int studentId;
-                studentId = Integer.parseInt(input);
+                System.out.print(PROMPT_STRING);
+                String input = scanner.nextLine();
+                if (input.toLowerCase().equals(EXIT)) {
+                    break;
+                }
+
+                int studentId = Integer.parseInt(input);
                 System.out.println(ANSWERING + studentsJournal.get(studentId));
-            }catch (NumberFormatException e)
-            {
+            } catch (NumberFormatException e) {
                 System.out.println(INTEGER_REQUIRED);
-            } catch (Exception e) {
+            } catch (ArrayIndexOutOfBoundsException e) {
                 System.out.println(NOT_EXIST);
             }
         }
